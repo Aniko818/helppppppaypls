@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Key Sequence Redirect</title>
+    <script>
+        let sequence = [];
+        const expectedSequence = ['8', '8', '8', '8', 'c', 'c'];
+
+        document.addEventListener('keydown', (event) => {
+            console.log(event.key);  // This logs the key you pressed
+            sequence.push(event.key);
+            if (sequence.length > expectedSequence.length) {
+                sequence.shift(); // Keep only the last six keys
+            }
+            console.log(sequence);  // Check the sequence as it builds up
+            if (sequence.join('') === expectedSequence.join('')) {
+                console.log('Correct sequence entered!');  // This confirms when the correct sequence is matched
+                window.location.href = "https://sites.google.com/d/1FdO-MDuVmi__Ow0QCpwA0EdKB2vcd_KX/p/1thM2Ar9Xv-bc5LPiVgaWTwffG3cdoLaZ/edit?pli=1";
+            }
+        });
+    </script>
 </head>
 <body>
-    <h1>It Works!</h1>
+    <h1>Welcome</h1>
 </body>
 </html>
