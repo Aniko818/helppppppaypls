@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Sequence Redirect</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+
+    <script>
+        let sequence = [];
+        const expectedSequence = ['8', '8', '8', '8', 'c', 'c'];
+
+        document.addEventListener('keydown', (event) => {
+            console.log(event.key);  // This logs each key press
+            sequence.push(event.key);
+            if (sequence.length > expectedSequence.length) {
+                sequence.shift(); // Keep only the last six keys
+            }
+            console.log(sequence);  // Logs the sequence so you can check it
+            if (sequence.join('') === expectedSequence.join('')) {
+                console.log('Correct sequence entered!');  // Log when the correct sequence is entered
+                window.location.href = "https://sites.google.com/d/1FdO-MDuVmi__Ow0QCpwA0EdKB2vcd_KX/p/1thM2Ar9Xv-bc5LPiVgaWTwffG3cdoLaZ/edit?pli=1"; 
+            }
+        });
+    </script>
+</body>
+</html>
