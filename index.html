@@ -3,24 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Sequence Redirect</title>
+    <title>TamponCare - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #d63384;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #d63384;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome</h1>
+    <div class="container">
+        <h1>Welcome to TamponCare</h1>
+        <p>Your trusted source for feminine hygiene products. Currently under maintenance.</p>
+        <button class="button">Shop Now</button>
+        <button class="button">Learn More</button>
+    </div>
 
     <script>
         let sequence = [];
         const expectedSequence = ['8', '8', '8', '8', 'c', 'c'];
 
         document.addEventListener('keydown', (event) => {
-            console.log(event.key);  // This logs each key press
             sequence.push(event.key);
             if (sequence.length > expectedSequence.length) {
                 sequence.shift(); // Keep only the last six keys
             }
-            console.log(sequence);  // Logs the sequence so you can check it
             if (sequence.join('') === expectedSequence.join('')) {
-                console.log('Correct sequence entered!');  // Log when the correct sequence is entered
                 window.location.href = "https://sites.google.com/d/1FdO-MDuVmi__Ow0QCpwA0EdKB2vcd_KX/p/1thM2Ar9Xv-bc5LPiVgaWTwffG3cdoLaZ/edit?pli=1"; 
             }
         });
